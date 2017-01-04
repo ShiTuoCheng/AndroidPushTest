@@ -1,0 +1,36 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+    defaultConfig {
+        applicationId "topu.com.pushtest"
+        minSdkVersion 21
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders=[
+                GETUI_APP_ID : "LfPfufNsV99JZFctFVb2c8",
+                GETUI_APP_KEY : "KIlfFIY1HE9hLpDShY4sx2",
+                GETUI_APP_SECRET : "G5iBeDczRV6Oc1e9d8LG33"
+        ]
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "mips", "mips64", "x86", "x86_64"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile files('libs/GetuiSDK2.9.5.0.jar')
+    compile 'com.android.support:support-v4'
+    testCompile 'junit:junit:4.12'
+}
